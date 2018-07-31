@@ -6,6 +6,7 @@ import {BrowserRouter as Router, Route, Switch, Redirect, Link} from 'react-rout
 import Details from './Details'
 import Paasivu from './Paasivu'
 import Juomat from './Juomat'
+import Juoma from './Juoma'
 import './App.css';
 import NotFound from './NotFound';
 
@@ -24,7 +25,7 @@ class App extends Component {
 </nav>
 <Switch>
     <Route exact path="/home" component={Paasivu}/> 
-    <Route exact path="/juomat" component={Juomat}/> 
+    <Route path="/juomat" component={Juomat}/> 
     <Route path="/details" component={Details}/> 
     <Redirect exact from= "/" to="/home"/>
     <Route component={NotFound}></Route>
