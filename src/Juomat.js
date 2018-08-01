@@ -2,25 +2,36 @@ import React, { Component } from 'react';
 
 import Juomalista from './Juomalista'
 import JuomanLisays from './JuomanLisays';
+import {haeLista} from './RestMetodit';
 
 class Juomat extends Component {
-  constructor(){
-    super()
-    this.state={lista: []};
-  }
-  
-  lisaaListaan = (uusi) => {
+  // constructor(){
+  //   super()
+  //   this.state={listat: []};
+  // }
 
-    uusi.id = (lista.length) + 1
-    lista.push(uusi)
-    // fetch('http://localhost:8080/api/quotes', {
-    //   method: 'POST',
-    //   headers: {'Content-Type': 'application/json'},
-    //   body: JSON.stringify(uusi)
-    // })
-    console.dir(lista)
-    this.setState(this.state);
-  }
+  state = {listat: [], msg: "Haetaan dataa"}
+  componentDidMount() {
+    this.haeListaJaPaivita();
+}
+haeListaJaPaivita = () => {
+    haeLista(function (lista) {
+        this.setState({listat: lista, msg: null});
+    }.bind(this));
+}
+
+  // lisaaListaan = (uusi) => {
+
+  //   uusi.id = (listat.length) + 1
+  //   listat.push(uusi)
+  //   // fetch('http://localhost:8080/api/quotes', {
+  //   //   method: 'POST',
+  //   //   headers: {'Content-Type': 'application/json'},
+  //   //   body: JSON.stringify(uusi)
+  //   // })
+  //   console.dir(lista)
+  //   this.setState(this.state);
+  // }
 
 
   //     poistajuoma=(poistid)=>
@@ -59,16 +70,16 @@ class Juomat extends Component {
 
         <h1>Juomat</h1>
         <JuomanLisays valmisjuoma={this.lisaaListaan} />
-        <Juomalista data1={lista} poisto={this.poistajuoma} />
+        <Juomalista data1={this.state.listat} poisto={this.poistajuoma} />
       </div>
     );
   }
 
 
 }
-var lista = [{juoma_id: 0, kategoria: "Vodka", nimi: 'rompun perunavodka', valmistaja: 'romppu', hinta: 13, valmistusmaa:"transnistria", valmistusvuosi: 1991, kuvaus:"iskee q nyrggi"  },
-{juoma_id: 1, kategoria: "Vodka", nimi: 'rompun perunavodka', valmistaja: 'romppu', hinta: 13, valmistusmaa:"transnistria", valmistusvuosi: 1991, kuvaus:"iskee q nyrggi"  },
-{juoma_id: 2, kategoria: "Vodka", nimi: 'rompun perunavodka', valmistaja: 'romppu', hinta: 13, valmistusmaa:"transnistria", valmistusvuosi: 1991, kuvaus:"iskee q nyrggi"  },
-{juoma_id: 3, kategoria: "Vodka", nimi: 'rompun perunavodka', valmistaja: 'romppu', hinta: 13, valmistusmaa:"transnistria", valmistusvuosi: 1991, kuvaus:"iskee q nyrggi"  },];
+// var lista = [{juoma_id: 0, kategoria: "Vodka", nimi: 'rompun perunavodka', valmistaja: 'romppu', hinta: 13, valmistusmaa:"transnistria", valmistusvuosi: 1991, kuvaus:"iskee q nyrggi"  },
+// {juoma_id: 1, kategoria: "Vodka", nimi: 'rompun perunavodka', valmistaja: 'romppu', hinta: 13, valmistusmaa:"transnistria", valmistusvuosi: 1991, kuvaus:"iskee q nyrggi"  },
+// {juoma_id: 2, kategoria: "Vodka", nimi: 'rompun perunavodka', valmistaja: 'romppu', hinta: 13, valmistusmaa:"transnistria", valmistusvuosi: 1991, kuvaus:"iskee q nyrggi"  },
+// {juoma_id: 3, kategoria: "Vodka", nimi: 'rompun perunavodka', valmistaja: 'romppu', hinta: 13, valmistusmaa:"transnistria", valmistusvuosi: 1991, kuvaus:"iskee q nyrggi"  },];
 
 export default Juomat;
