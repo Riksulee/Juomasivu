@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-
+import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom';
 import Juomalista from './Juomalista';
-import JuomanLisays from './JuomanLisays';
 
 const urlHaeKaikki = 'http://localhost:1595/api/juomat/';
 
@@ -19,7 +18,6 @@ class Juomat extends Component {
     this.setState({lista : templista})
   }
 
-
   componentDidMount() {
     this.HaeKaikkiJuomat();
   }
@@ -36,6 +34,8 @@ class Juomat extends Component {
     return (
       <div>
         <h1>Juomat</h1>
+        <Link to="/uusijuoma">Lisää uusi juoma</Link>
+        
         <Juomalista data1={this.state.lista} PoistaJuomaListalta={this.PoistaJuomaListalta} />
       </div>
     );

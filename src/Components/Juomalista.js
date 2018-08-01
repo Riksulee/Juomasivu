@@ -14,7 +14,8 @@ class Juomalista extends Component {
 
         return (
             <div>
-                <h2>Lista</h2>
+                <h2>Kaikki Juomat</h2>
+                
                 {juomat}
             </div>
         );

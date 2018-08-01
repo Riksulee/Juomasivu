@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {MuokkaaJuoma} from './Palvelu'
-//const urlHaeKaikki = 'http://localhost:1595/api/juomat/';
 
 const urlHaeKaikki = 'http://localhost:1595/api/juomat/'
 

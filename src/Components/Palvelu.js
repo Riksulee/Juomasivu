@@ -1,19 +1,7 @@
 import React from 'react';
 
 const urlHaeKaikki = 'http://localhost:1595/api/juomat/'
-const urlPoistaKaikki = 'http://localhost:8080/reset'
 
-export function Haesanonta(callback) {
-    let talteen = fetch(urlHaeKaikki)
-        .then(result => {
-            console.log(result)
-            return result.json()
-            }).then(myjson => {
-                console.log(myjson);
-                callback(myjson);
-            });
-
-} 
 
 export function Luosanonta(sanonta) {
     fetch(urlHaeKaikki, {
@@ -29,6 +17,16 @@ export function Poistasanonta(id) {
         method: 'DELETE'
     })
     .then(res => res.json())
+}
+
+export function LisaaUusiJuomaApi(juoma) {
+    fetch(urlHaeKaikki, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json' },
+        body: JSON.stringify({'kategoria' : juoma.kategoria, 'nimi' : juoma.nimi, 'valmistaja': juoma.valmistaja,
+        'hinta': juoma.hinta, 'valmistusmaa': juoma.valmistusmaa})
+        })
+        .then(res => console.log(res))
 }
 
 export function PoistaJuomaApista(juoma_id) {

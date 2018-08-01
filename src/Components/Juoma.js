@@ -22,7 +22,7 @@ class Juoma extends Component {
             <li>Kategoria: {this.props.juoma.kategoria}</li>
             <li>Hinta: {this.props.juoma.hinta}€</li>
 
-            <Link to={`/details/${this.props.juoma.juoma_id}`}>Details</Link><button onClick={this.PoistaJuomaListalta}>  Poista</button>
+            <Link to={`/details/${this.props.juoma.juoma_id}`}>Details</Link>  <button onClick={this.PoistaJuomaListalta}>  Poista</button>
             <hr />
         </div>)
     }
