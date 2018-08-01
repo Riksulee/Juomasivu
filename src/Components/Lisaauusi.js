@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect, Link } from 'react-router-dom';
+import { LisaaUusiJuomaApi } from './Palvelu';
 
 class Lisaauusi extends Component {
     constructor() {
@@ -16,6 +17,9 @@ class Lisaauusi extends Component {
             nimi: this.refs.nimi.value, valmistaja: this.refs.valmistaja.value, hinta: this.refs.hinta.value,
             valmistusmaa: this.refs.valmistusmaa.value, valmistusvuosi: this.refs.valmistusvuosi.value,
             kuvaus: this.refs.kuvaus.value };
+
+            <Redirect to="/juomat"/>;
+            LisaaUusiJuomaApi(juomaTemp);
         
         
     }
@@ -38,7 +42,7 @@ class Lisaauusi extends Component {
                 <input ref="valmistusvuosi" type="number" /><br />
                 <label>Kuvaus: </label>
                 <input ref="kuvaus" type="text"/><br />
-                <button onClick={null} type="button">Luo</button>
+                <button onClick={this.Lisaauusi} type="button">Luo</button>
             </div>
         );
     }

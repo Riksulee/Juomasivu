@@ -24,9 +24,11 @@ export function LisaaUusiJuomaApi(juoma) {
         method: 'POST',
         headers: {'Content-Type': 'application/json' },
         body: JSON.stringify({'kategoria' : juoma.kategoria, 'nimi' : juoma.nimi, 'valmistaja': juoma.valmistaja,
-        'hinta': juoma.hinta, 'valmistusmaa': juoma.valmistusmaa})
+        'hinta': juoma.hinta, 'valmistusmaa': juoma.valmistusmaa, 'valmistusvuosi': juoma.valmistusvuosi,
+        'kuvaus': juoma.kuvaus})
         })
         .then(res => console.log(res))
+        
 }
 
 export function PoistaJuomaApista(juoma_id) {
