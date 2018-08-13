@@ -7,7 +7,7 @@ import Juoma from './Components/Juoma'
 import './App.css';
 import NotFound from './Components/NotFound';
 import Lisaauusi from './Components/Lisaauusi';
-
+// Kolmas kommentti
 class App extends Component {
   render() {
     return (
